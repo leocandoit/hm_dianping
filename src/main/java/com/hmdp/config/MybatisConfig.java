@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerIntercept
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+// 让 MyBatis-Plus 支持自动分页，不需要手写limit ， 语句
 @Configuration
 public class MybatisConfig {
     @Bean
@@ -14,5 +15,4 @@ public class MybatisConfig {
         interceptor.addInnerInterceptor(new PaginationInnerInterceptor(DbType.MYSQL));
         return interceptor;
     }
-    
 }

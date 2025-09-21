@@ -56,7 +56,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         String code = RandomUtil.randomNumbers(6);
 
         // 4.保存验证码到 session
-        stringRedisTemplate.opsForValue().set(LOGIN_CODE_KEY + phone, code, LOGIN_CODE_TTL, TimeUnit.MINUTES);
+        stringRedisTemplate.opsForValue().set(LOGIN_CODE_KEY + phone, code, LOGIN_CODE_TTL, TimeUnit.MINUTES);//指定时间和时间单位代表验证码的过期时间
 
         // 5.发送验证码
         log.debug("发送短信验证码成功，验证码：{}", code);
@@ -80,7 +80,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
             return Result.fail("验证码错误");
         }
 
-        // 4.一致，根据手机号查询用户 select * from tb_user where phone = ?
+        // 4.一致，根据手机号查询用户 select * from tb_user where phone = ? 用了mybatisplus就不需要了，继承ServiceImpl就可以用query()
         User user = query().eq("phone", phone).one();
 
         // 5.判断用户是否存在

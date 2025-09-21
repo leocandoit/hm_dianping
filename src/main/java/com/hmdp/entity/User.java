@@ -18,10 +18,10 @@ import java.time.LocalDateTime;
  * @author 虎哥
  * @since 2021-12-22
  */
-@Data
-@EqualsAndHashCode(callSuper = false)
-@Accessors(chain = true)
-@TableName("tb_user")
+@Data // Lombok注解，自动生成getter、setter、toString等方法
+@EqualsAndHashCode(callSuper = false) // Lombok注解，生成equals和hashCode方法，不调用父类的
+@Accessors(chain = true) // Lombok注解，支持链式调用
+@TableName("tb_user") // MyBatis-Plus注解，指定对应的数据库表名
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -29,7 +29,7 @@ public class User implements Serializable {
     /**
      * 主键
      */
-    @TableId(value = "id", type = IdType.AUTO)
+    @TableId(value = "id", type = IdType.AUTO) 
     private Long id;
 
     /**

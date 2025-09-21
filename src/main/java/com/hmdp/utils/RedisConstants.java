@@ -2,7 +2,8 @@ package com.hmdp.utils;
 
 public class RedisConstants {
     public static final String LOGIN_CODE_KEY = "login:code:";
-    public static final Long LOGIN_CODE_TTL = 2L;
+    // 2L中的L表示这是一个long类型的字面量，如果没有L，2默认是int类型
+    public static final Long LOGIN_CODE_TTL = 2L; // 2L表示long类型的2
     public static final String LOGIN_USER_KEY = "login:token:";
     public static final Long LOGIN_USER_TTL = 36000L;
 

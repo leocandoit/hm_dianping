@@ -22,6 +22,12 @@ import javax.annotation.Resource;
 @RequestMapping("/shop")
 public class ShopController {
 
+    // @Resource 和 @Autowired 都可以用来自动注入 Spring 容器中的 Bean。
+    // 区别如下：
+    // 1. @Autowired 是 Spring 提供的注解，默认按类型注入（可以配合 @Qualifier 按名称注入）。
+    // 2. @Resource 是 JSR-250 规范的注解，默认按名称注入（如果找不到再按类型注入）。
+    // 3. @Resource 有 name 和 type 属性，@Autowired 只有 required 属性。
+    // 4. @Autowired 只适用于 Spring，@Resource 兼容性更好。
     @Resource
     public IShopService shopService;
 
