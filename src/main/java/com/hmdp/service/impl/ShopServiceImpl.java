@@ -63,7 +63,7 @@ public class ShopServiceImpl extends ServiceImpl<ShopMapper, Shop> implements IS
         return Result.ok(shop);
     }
 
-    @Override
+    @Override 
     @Transactional
     public Result update(Shop shop) {
         Long id = shop.getId();
